@@ -327,8 +327,10 @@ This Express server manages CSV file processing tasks. It includes functionality
 <ul>
     <li><b>Description</b>: Deletes specific CSV files from the results directory and starts the processing of CSV files by executing an npm start command;</li>
     <li><b>Response</b>:</li>
-        <li><b>200 OK</b>: If the processing starts successfully;</li>
-        <li><b>500 Internal Server Error</b>: If there is an error starting the processing.</li>
+        <ul>
+            <li><b>200 OK</b>: If the processing starts successfully;</li>
+            <li><b>500 Internal Server Error</b>: If there is an error starting the processing.</li>
+        </ul>
 </ul>
 
 <h4>Example Request:</h4>
@@ -355,8 +357,10 @@ This Express server manages CSV file processing tasks. It includes functionality
 <ul>
     <li><b>Description</b>: Lists all CSV files present in the results directory;</li>
     <li><b>Response</b>:</li>
-        <li><b>200 OK</b>: Returns a JSON array with the names of the CSV files;</li>
-        <li><b>500 Internal Server Error</b>: If there is an error listing the files.</li>
+        <ul>
+            <li><b>200 OK</b>: Returns a JSON array with the names of the CSV files;</li>
+            <li><b>500 Internal Server Error</b>: If there is an error listing the files.</li>
+        </ul>
 </ul>
 
 <h4>Example Request:</h4>
