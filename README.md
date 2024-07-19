@@ -294,19 +294,19 @@ const processVotes = async () => {
 
 <h3>Answers</h3>
 
-<h4>1</h4>:
+<h4>1</h4>
 
 Time complexity depends on the number of lines in the CSV files. If we have to read and process multiple files, the time it takes to do so increases with the number of lines in the largest file. We can say that the time needed is proportional to the number of lines in the largest file, which is what most affects speed. So if the largest file has n lines, the time complexity is O(n). This means that the time to process files increases linearly with the size of the largest CSV file;
 
 <br>
 
-<h4>2</h4>:
+<h4>2</h4>
 
 If we need to add a new column, such as 'Co-sponsors', I would adjust the code to look for this new information. For the 'Bill voted on date' column, if it is necessary to count votes before or after a specific date, I would compare the dates. This ensures that the code counts the correct votes according to the date. In short, I would just update the code to handle new columns and do date comparisons correctly;
 
 <br>
 
-<h4>3</h4>:
+<h4>3</h4>
 
 The current solution can be adapted to work with lists of legislators or bills instead of CSV files, maintaining efficiency in data processing. The API was designed to handle large volumes of data using streaming, as demonstrated in the `fs.createReadStream` snippet on line 27 of the `index.js` file.
 
@@ -320,7 +320,7 @@ The current solution can be adapted to work with lists of legislators or bills i
 
 <br>
 
-<h4>4</h4>:
+<h4>4</h4>
 
 I started developing the solution at 9 pm on 07/18/2024 and finished development at 12 pm on the same day. It took me a while to commit the resolution because I was focused on developing the challenge's README.
 
