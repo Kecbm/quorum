@@ -355,10 +355,10 @@ This Express server manages CSV file processing tasks. It includes functionality
 `GET /csv-files`
 
 <ul>
-    <li><b>Description</b>: Lists all CSV files present in the results directory;</li>
+    <li><b>Description</b>: Lists all CSV files present in the results directory and returns their content;</li>
     <li><b>Response</b>:</li>
         <ul>
-            <li><b>200 OK</b>: Returns a JSON array with the names of the CSV files;</li>
+            <li><b>200 OK</b>: Returns a JSON array with the filenames and contents of the CSV files;</li>
             <li><b>500 Internal Server Error</b>: If there is an error listing the files.</li>
         </ul>
 </ul>
@@ -373,8 +373,14 @@ This Express server manages CSV file processing tasks. It includes functionality
 
 ```json
 [
-  "legislators-support-oppose-count.csv",
-  "bills-support-oppose-count.csv"
+  {
+    "filename": "legislators-support-oppose-count.csv",
+    "content": "id,name,num_supported_bills,num_opposed_bills\n1,John Doe,5,2\n2,Jane Smith,3,4"
+  },
+  {
+    "filename": "bills-support-oppose-count.csv",
+    "content": "id,title,supporter_count,opposer_count,primary_sponsor\n1,Bill A,10,2,John Doe\n2,Bill B,5,7,Jane Smith"
+  }
 ]
 ```
 
