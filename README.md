@@ -14,7 +14,7 @@
 
 <br>
 
-An `API` for processing CSV files using `Node.js` and `JavaScript`.
+An `API` for processing CSV files using `Node.js`, `JavaScript` and `Express`. Also develop a front end using `HTML` and `CSS` to display the results.
 
 <br>
 
@@ -26,7 +26,7 @@ An `API` for processing CSV files using `Node.js` and `JavaScript`.
 
 <br>
 
-<img title="Node" alt="Node" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" /> <img title="JavaScript" alt="JavaScript" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+<img title="Node" alt="Node" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" /> <img title="JavaScript" alt="JavaScript" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" /> <img title="Express" alt="Express" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" /> <img title="HTML" alt="HTML" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" /> <img title="CSS" alt="CSS" height="80" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
 
 <br>
 
@@ -75,6 +75,19 @@ npm test
 
 <br>
 
+Access the frontend
+
+Execute the Server
+
+```bash
+cd quorum
+npm serve
+```
+
+The server will start and listen on port 3000. You can access the frontend in **http://localhost:3000**.
+
+<br>
+
 <p align="right"><a href="#top">Back to the top ☝</a></p>
 
 ---
@@ -89,6 +102,8 @@ The documentation is intended to provide a clear and detailed overview of the de
 <h3>Description</h3>
 
 This module processes CSV files related to votes, vote results, bills, and legislators. It generates two output CSV files with statistics on support and opposition for bills and support from legislators.
+
+**Note:** This documentation section is about the `index.js` file.
 
 <h3>Functionalities</h3>
 
@@ -291,6 +306,9 @@ const processVotes = async () => {
 </details>
 
 <br>
+
+<details><summary>Server Documentation</summary>
+</details>
 
 <p align="right"><a href="#top">Back to the top ☝</a></p>
 
