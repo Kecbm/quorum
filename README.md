@@ -18,6 +18,8 @@ An `API` for processing CSV files using `Node.js` and `JavaScript`.
 
 <br>
 
+<p align="right"><a href="#top">Back to the top ☝</a></p>
+
 ---
 
 <h2 id="tech">Technologies used</h2>
