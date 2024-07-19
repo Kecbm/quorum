@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 30px;
+            padding: 10px;
         }
         button {
             margin: 10px;
@@ -27,15 +27,22 @@
         #files {
             margin-top: 20px;
         }
-        .csv-file {
+        .csv-title {
             background-color: #241362;
             color: white;
-            margin: 15px;
             padding: 15px;
             font-size: 20px;
+            font-weight: bold;
+            margin: 0px;
+        }
+        .csv-content {
+            background-color: #9b8ff6;
+            padding: 15px;
+            font-size: 15px;
+            margin: 0;
         }
         footer {
-            background-color: #9b8ff6;
+            background-color: #7961f1;
             color: #241362;
             font-weight: bold;
             text-align: center;
@@ -47,7 +54,7 @@
     <button onclick="startProcessing()">Start Processing</button>
 
     <div id="files">
-        <h2>Arquivos CSV</h2>
+        <h2>CSV Files</h2>
     </div>
 
     <script>
@@ -70,12 +77,17 @@
                     if (files.length > 0) {
                         filesDiv.innerHTML += '<h3>Files generated in the API result folder:</h3>';
                         files.forEach(file => {
-                            const fileLink = document.createElement('p');
-                            fileLink.textContent = file;
-                            fileLink.className = 'csv-file';
-                            filesDiv.appendChild(fileLink);
+                            const fileContainer = document.createElement('div');
+                            const fileTitle = document.createElement('p');
+                            fileTitle.className = 'csv-title';
+                            fileTitle.textContent = file.filename;
+                            const fileContent = document.createElement('pre');
+                            fileContent.className = 'csv-content';
+                            fileContent.textContent = file.content;
+                            fileContainer.appendChild(fileTitle);
+                            fileContainer.appendChild(fileContent);
+                            filesDiv.appendChild(fileContainer);
                         });
-                        filesDiv.innerHTML += '<p>EXIBIR O CONTEÚDO DOS ARQUIVOS DE RESULT</p>';
                     } else {
                         filesDiv.innerHTML += '<p>No files found.</p>';
                     }
