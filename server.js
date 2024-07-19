@@ -37,7 +37,12 @@ app.get('/csv-files', (_req, res) => {
             return res.status(500).send('Error listing CSV files.');
         }
         const csvFiles = files.filter(file => file.endsWith('.csv'));
-        res.json(csvFiles);
+        const fileContents = csvFiles.map(file => {
+            const filePath = path.join(resultsDir, file);
+            const content = fs.readFileSync(filePath, 'utf8');
+            return { filename: file, content };
+        });
+        res.json(fileContents);
     });
 });
 
