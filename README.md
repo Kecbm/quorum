@@ -383,10 +383,6 @@ This Express server manages CSV file processing tasks. It includes functionality
   }
 ]
 ```
-
-<h3>Static Files</h3>
-
-The server serves static files from the `public` directory. Place your HTML, CSS, and client-side JavaScript files in this directory.
 </details>
 
 <p align="right"><a href="#top">Back to the top ☝</a></p>
