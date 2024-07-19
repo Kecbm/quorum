@@ -92,3 +92,10 @@ const processVotes = async () => {
 };
 
 processVotes().catch(error => console.error('Error processing CSV files:', error.message));
+
+module.exports = {
+    processCSV,
+    updateVoteData,
+    updateLegislatorData,
+    processVotes
+};
