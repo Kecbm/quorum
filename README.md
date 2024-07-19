@@ -6,6 +6,7 @@
 - [Technologies used](#tech)
 - [Execute the project](#execute)
 - [Documentation](#doc)
+- [Next Steps](#nextSteps)
 - [Final considerations](#considerations)
 
 ---
@@ -76,6 +77,8 @@ npm test
 <br>
 
 Access the frontend
+
+![Frontend](./assets/Frontend.png)
 
 Execute the Server
 
@@ -384,6 +387,35 @@ This Express server manages CSV file processing tasks. It includes functionality
 ]
 ```
 </details>
+
+<p align="right"><a href="#top">Back to the top ☝</a></p>
+
+---
+
+<h2 id="nextSteps">Next Steps</h2>
+
+<br>
+
+Aiming to offer continuous improvement Software, considering the [MVP development](https://dev.to/kecbm/desenvolvimento-orientado-ao-mvp-minimo-produto-viavel-km4) where the analysis of customer feedback is carried out with each new delivery and adjustments to existing functionalities or development of new functionalities, below I list a series of [tasks](https://dev.to/kecbm/o-poder-das-tarefas-como-pequenas-entregas-levam-a-grandes-resultados-2of6) to be carried out in the project in the future, which forms an initial product backlog. Feel free to contribute to this list.
+
+<br>
+
+- [ ] Build a frontend in React;
+- [ ] Refactor the API to use the MSC architecture;
+- [ ] Replace CSS with Tailwind;
+- [ ] Develop new application routes;
+- [ ] Make the application responsive;
+- [ ] Develop the dark theme;
+- [ ] Develop the Not Found page;
+- [ ] Deploy the application;
+- [ ] Build the database for the API;
+- [ ] Dockerize the frontend, backend and database;
+- [ ] Develop frontend and server tests;
+- [ ] Develop integration tests;
+- [ ] Consume data dynamically;
+- [ ] Make the analysis CSV available for download;
+
+<br>
 
 <p align="right"><a href="#top">Back to the top ☝</a></p>
 
