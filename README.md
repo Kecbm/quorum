@@ -58,6 +58,8 @@ cd quorum
 npm start
 ```
 
+> At this moment, the files `bills-support-oppose-count.csv` and `legislators-support-oppose-count.csv` are already generated in the `results` folder. To generate them again it is necessary to delete the files in the `results` folder and run the project again, with the `npm start` command.
+
 Run the tests
 
 ```bash
