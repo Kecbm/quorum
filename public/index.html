@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://fav.farm/🏛️" />
+    <title>Quorum Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #7259EF;
+            border-radius: 0.33333333em;
+            color: #FFF;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        button:hover {
+            background-color: #9b8ff6;
+        }
+        #files {
+            margin-top: 20px;
+        }
+        .csv-file {
+            background-color: #241362;
+            color: white;
+            margin: 15px;
+            padding: 15px;
+            font-size: 20px;
+        }
+        footer {
+            background-color: #9b8ff6;
+            color: #241362;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSV File Processing API</h1>
+    <button onclick="startProcessing()">Start Processing</button>
+    <button onclick="restartAPI()">Reset API</button>
+
+    <div id="files">
+        <h2>Arquivos CSV</h2>
+    </div>
+
+    <script>
+        function startProcessing() {
+            fetch('/start', { method: 'POST' })
+                .then(response => response.text())
+                .then(message => {
+                    alert(message);
+                    listCSVFiles();
+                })
+                .catch(error => alert('Error starting processing: ' + error));
+        }
+
+        function restartAPI() {
+            fetch('/restart', { method: 'POST' })
+                .then(response => response.text())
+                .then(message => {
+                    alert(message);
+                    listCSVFiles();
+                })
+                .catch(error => alert('Error restarting the API: ' + error));
+        }
+
+        function listCSVFiles() {
+            fetch('/csv-files')
+                .then(response => response.json())
+                .then(files => {
+                    const filesDiv = document.getElementById('files');
+                    filesDiv.innerHTML = '<h2>CSV files</h2>';
+                    if (files.length > 0) {
+                        filesDiv.innerHTML += '<h3>Files generated in the API result folder:</h3>';
+                        files.forEach(file => {
+                            const fileLink = document.createElement('p');
+                            fileLink.textContent = file;
+                            fileLink.className = 'csv-file';
+                            filesDiv.appendChild(fileLink);
+                        });
+                        filesDiv.innerHTML += '<p>Access the result folder to access the files.</p>';
+                    } else {
+                        filesDiv.innerHTML += '<p>No files found.</p>';
+                    }
+                    const footer = document.createElement('footer');
+                    footer.innerHTML = `
+                        <p>Project developed with <img width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/48/241362/filled-like.png" alt="Heart" title="Heart"/> per Klecianny Melo</p>
+                        
+                        <a href="https://www.linkedin.com/in/kecbm/" target="_blank"><img width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/241362/linkedin.png" alt="Linkedin" title="Linkedin"/></a>
+
+                        <a href="https://github.com/Kecbm" target="_blank"><img width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/241362/github.png" alt="GitHub" title="GitHub"/></a>
+
+                        <a href="https://x.com/Kecbm" target="_blank"><img width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/241362/twitter.png" alt="Twitter" title="Twitter"/></a>
+
+                        <a href="https://www.instagram.com/kecbm" target="_blank"><img width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/241362/instagram-new.png" alt="Instagram" title="Instagram"/></a>
+                    `;
+                    filesDiv.appendChild(footer);
+                })
+                .catch(error => alert('Error listing CSV files: ' + error));
+        }
+
+        document.addEventListener('DOMContentLoaded', listCSVFiles);
+    </script>
+</body>
+</html>
