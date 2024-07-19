@@ -54,7 +54,15 @@ npm install
 Execute the API for generating CSV files
 
 ```bash
+cd quorum
 npm start
+```
+
+Run the tests
+
+```bash
+cd quorum
+npm test
 ```
 
 <br>
