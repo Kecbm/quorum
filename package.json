@@ -4,7 +4,7 @@
   "description": "Quorum Mid Level Full Stack Developer Technical Challenge repository",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node index.js"
   },
   "keywords": [],
@@ -13,5 +13,8 @@
   "dependencies": {
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
