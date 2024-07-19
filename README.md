@@ -81,7 +81,7 @@ Execute the Server
 
 ```bash
 cd quorum
-npm serve
+npm run serve
 ```
 
 The server will start and listen on port 3000. You can access the frontend in **http://localhost:3000**.
@@ -101,9 +101,7 @@ The documentation is intended to provide a clear and detailed overview of the de
 <details><summary>CSV File Processing API Documentation</summary>
 <h3>Description</h3>
 
-This module processes CSV files related to votes, vote results, bills, and legislators. It generates two output CSV files with statistics on support and opposition for bills and support from legislators.
-
-**Note:** This documentation section is about the `index.js` file.
+This module processes CSV files related to votes, vote results, bills, and legislators. It generates two output CSV files with statistics on support and opposition for bills and support from legislators. This documentation section is about the `index.js` file.
 
 <h3>Functionalities</h3>
 
@@ -308,6 +306,77 @@ const processVotes = async () => {
 <br>
 
 <details><summary>Server Documentation</summary>
+
+<h3>Overview</h3>
+
+This Express server manages CSV file processing tasks. It includes functionality to start the processing of CSV files and list available CSV files in the `results` directory. This documentation section is about the `server.js` file.
+
+<h3>Dependencies</h3>
+
+<ul>
+    <li><b>express</b>: Web framework for Node.js;</li>
+    <li><b>child_process</b>: Node.js module to execute shell commands;</li>
+    <li><b>fs</b>: Node.js module for file system operations.</li>
+    <li><b>path</b>: Node.js module for handling file paths.</li>
+</ul>
+
+<h3>Endpoints</h3>
+
+`POST /start`
+
+<ul>
+    <li><b>Description</b>: Deletes specific CSV files from the results directory and starts the processing of CSV files by executing an npm start command;</li>
+    <li><b>Response</b>:</li>
+        <li><b>200 OK</b>: If the processing starts successfully;</li>
+        <li><b>500 Internal Server Error</b>: If there is an error starting the processing.</li>
+</ul>
+
+<h4>Example Request:</h4>
+
+```http
+    POST /start
+```
+
+<h4>Example Response:</h4>
+
+```json
+"Processing of CSV files started successfully."
+```
+
+**Note**: The following CSV files are deleted before starting the processing:
+
+<ul>
+    <li><b>legislators-support-oppose-count.csv</b></li>
+    <li><b>bills-support-oppose-count.csv</b></li>
+</ul>
+
+`GET /csv-files`
+
+<ul>
+    <li><b>Description</b>: Lists all CSV files present in the results directory;</li>
+    <li><b>Response</b>:</li>
+        <li><b>200 OK</b>: Returns a JSON array with the names of the CSV files;</li>
+        <li><b>500 Internal Server Error</b>: If there is an error listing the files.</li>
+</ul>
+
+<h4>Example Request:</h4>
+
+```http
+GET /csv-files
+```
+
+<h4>Example Response:</h4>
+
+```json
+[
+  "legislators-support-oppose-count.csv",
+  "bills-support-oppose-count.csv"
+]
+```
+
+<h3>Static Files</h3>
+
+The server serves static files from the `public` directory. Place your HTML, CSS, and client-side JavaScript files in this directory.
 </details>
 
 <p align="right"><a href="#top">Back to the top ☝</a></p>
