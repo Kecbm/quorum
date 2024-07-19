@@ -294,12 +294,35 @@ const processVotes = async () => {
 
 <h3>Answers</h3>
 
-<ul>
-    <li><b>1</b>: Time complexity depends on the number of lines in the CSV files. If we have to read and process multiple files, the time it takes to do so increases with the number of lines in the largest file. We can say that the time needed is proportional to the number of lines in the largest file, which is what most affects speed. So if the largest file has n lines, the time complexity is O(n). This means that the time to process files increases linearly with the size of the largest CSV file;</li>
-    <li><b>2</b>: If we need to add a new column, such as 'Co-sponsors', I would adjust the code to look for this new information. For the 'Bill voted on date' column, if it is necessary to count votes before or after a specific date, I would compare the dates. This ensures that the code counts the correct votes according to the date. In short, I would just update the code to handle new columns and do date comparisons correctly;</li>
-    <li><b>3</b>: If I were given a list instead of CSV files, I would process the list directly using loops to organize the data. Then, I would use a library to create the CSV from the processed data;</li>
-    <li><b>4</b>: I started developing the solution at 9 pm on 07/18/2024 and finished development at 12 pm on the same day. It took me a while to commit the resolution because I was focused on developing the challenge's README.</li>
-</ul>
+<h4>1</h4>:
+
+Time complexity depends on the number of lines in the CSV files. If we have to read and process multiple files, the time it takes to do so increases with the number of lines in the largest file. We can say that the time needed is proportional to the number of lines in the largest file, which is what most affects speed. So if the largest file has n lines, the time complexity is O(n). This means that the time to process files increases linearly with the size of the largest CSV file;
+
+<br>
+
+<h4>2</h4>:
+
+If we need to add a new column, such as 'Co-sponsors', I would adjust the code to look for this new information. For the 'Bill voted on date' column, if it is necessary to count votes before or after a specific date, I would compare the dates. This ensures that the code counts the correct votes according to the date. In short, I would just update the code to handle new columns and do date comparisons correctly;
+
+<br>
+
+<h4>3</h4>:
+
+The current solution can be adapted to work with lists of legislators or bills instead of CSV files, maintaining efficiency in data processing. The API was designed to handle large volumes of data using streaming, as demonstrated in the `fs.createReadStream` snippet on line 27 of the `index.js` file.
+
+**Data Input**: Instead of reading data from CSV files, the data would be passed directly as lists in JSON format or another appropriate data structure.
+
+**Data Processing**: Instead of `processCSV`, we will use functions that iterate over the provided lists. We will use array methods like forEach or map to process the data.
+
+**Data Update**: The `updateVoteData` and `updateLegislatorData` functions would remain largely the same, being called within the iteration methods to update vote and legislator counts.
+
+**Writing of Results**: After processing, the results would be written to CSV files using `createObjectCsvWriter` as before, ensuring the data is formatted correctly for export.
+
+<br>
+
+<h4>4</h4>:
+
+I started developing the solution at 9 pm on 07/18/2024 and finished development at 12 pm on the same day. It took me a while to commit the resolution because I was focused on developing the challenge's README.
 
 <br>
 
