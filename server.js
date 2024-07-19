@@ -9,18 +9,6 @@ const PORT = 3000;
 app.use(express.static('public'));
 
 app.post('/start', (_req, res) => {
-    exec('npm start', (error, stdout, stderr) => {
-        if (error) {
-            console.error(`exec error: ${error}`);
-            return res.status(500).send('Error starting to process CSV files.');
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-        res.send('Processing of CSV files started successfully.');
-    });
-});
-
-app.post('/restart', (_req, res) => {
     const resultsDir = path.join(__dirname, 'results');
     const filesToDelete = ['legislators-support-oppose-count.csv', 'bills-support-oppose-count.csv'];
 
@@ -30,8 +18,16 @@ app.post('/restart', (_req, res) => {
             fs.unlinkSync(filePath);
         }
     });
-
-    res.send('Successfully deleted CSV files.');
+    
+    exec('npm start', (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return res.status(500).send('Error starting to process CSV files.');
+        }
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
+        res.send('Processing of CSV files started successfully.');
+    });
 });
 
 app.get('/csv-files', (_req, res) => {
